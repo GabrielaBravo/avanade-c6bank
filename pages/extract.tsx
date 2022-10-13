@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function extract() {
+export default function ExtractPage() {
   return (
     <div>extract</div>
   )
