@@ -2,49 +2,21 @@ import React, { FormEvent, useEffect, useState } from 'react'
 import {Typography, 
     Container, 
     Button, 
-    Avatar, 
     TextField, 
     Checkbox, 
-    Grid, 
     Box, 
     CssBaseline, 
     FormControlLabel,
-    Stack,
-    Snackbar} from '@mui/material';
-import Link from 'next/link';
+    } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { setDefaultResultOrder } from 'dns';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Snackbar from '../components/utils/SnackBar';
+import Copyright from '../components/utils/Copyright';
 
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
-    props,
-    ref,
-  ) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  });
+
   
   
 //@mui/material
-
-type CopyProps = {
-    site: String;
-}
-function Copyright (props: CopyProps) {
-    return (
-        <Typography>
-            {'Copyright ©️'}
-            <Link color="inherit" href={ `https://www.${props.site}`}>
-            {props.site}
-
-            </Link>
-            {' '}
-            {new Date().getFullYear()}
-            {'.'}
-
-        </Typography>
-    )
-}
 
 const theme = createTheme();
 
@@ -95,38 +67,16 @@ useEffect(()=> {
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline/>
-                <Stack>  
-                <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-          Usuário logado com sucesso!..Aguarde..
-        </Alert>
-      </Snackbar>
-      </Stack>
-            {/*<button onClick={()=>setContador(contador+1)}>Mudando o Contador</button>
-            Contador vale {contador}*/}
-                <Box sx={{mt: 8, 
-                    display: 'flex',
-                    flexDirection:'column',
-                    alignItem: 'center'}}>
-                        <Typography component="h1" variant="h5">
-                            Tela de Login
-                        </Typography>
-                        <Box component="form" onSubmit={handleSubmit} sx={{mt:1}}>
-                            <TextField autoFocus={true} margin="normal" required id="email" name="email" fullWidth label="Digite o login"  autoComplete="email"/>
+              {/* <Snackbar open={open} duration={6} message={'Usuário logado com sucesso! ...Aguarde...'}>*/}
 
-                            <TextField margin="normal" required id="password" name="password" type="password" fullWidth label="Digite a Senha" autoComplete='current-password'/>
-                        <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="lembrar-me" />
-                        <Button type='submit' fullWidth variant='contained' sx={{mt:3, mb:2}}>
-                        Login
 
-                        </Button>
-                        {error && <Typography color="error">{errorMessage}</Typography>}
-
-                        </Box>
-                </Box>
+                
+            { /*<button onClick={()=>setContador(contador+1)}>Mudando o Contador</button>
+              Contador vale {contador}*/}
+               
 
             <Copyright site="avanade"/>
-
+            {open && <Snackbar open={open} hide={5} message={'Usuário logado com sucesso!...Aguarde...'} severity="success" />}
             </Container>
         </ThemeProvider>
     )
