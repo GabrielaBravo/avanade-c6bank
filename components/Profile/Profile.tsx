@@ -9,7 +9,7 @@ const ProfileContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 350px;
+    height: 300px;
     background-color: #242424;
     color: #f8f8f8;
     h2, h3 {

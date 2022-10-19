@@ -10,10 +10,21 @@ const MenuContainer = styled.nav`
   color: #f8f8f8;
   ul {
     width: 100%;
+    height: 180px;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    &::-webkit-scrollbar-thumb {
+      background: #242424;
+      outline: 1px solid #777777;
+      border-radius: 2px;
+    }
+    &::-webkit-scrollbar{
+      width: 6px;
+
+    }
     li {
       font-weight: 400;
       font-size: 1.2rem;
@@ -21,7 +32,7 @@ const MenuContainer = styled.nav`
       display: flex;
       padding-left: 15px;
       list-style: none;
-      line-height: 60px;
+      line-height: 40px;
       border: solid 4px transparent;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
